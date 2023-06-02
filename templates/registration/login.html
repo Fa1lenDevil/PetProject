@@ -44,7 +44,7 @@
         </div>
 
         <div class="text-center" bis_skin_checked="1">
-          <p>Not a member? <a href="#!">Register</a></p>
+          <p>Not a member? <a href="{% url 'accounts-signup' %}">Register</a></p>
           <p>or sign up with:</p>
           <a href="#" class="btn btn-outline-dark">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
@@ -67,7 +67,7 @@
       </form>
     </section>
   </div>
-
+{% block title %} Log in {% endblock %}
 {% endblock content %}
 
 
