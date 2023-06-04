@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'menu',
     'accounts',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-eu'
 
 TIME_ZONE = 'UTC'
 

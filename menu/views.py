@@ -1,27 +1,26 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .models import Pizza, Soup, Snack, Drinks
+from .models import Product
 
 
-class MenuView(TemplateView):
+class PizzaView(TemplateView):
     template_name = 'catalog/pizza.html'
 
     def get(self, request):
-        pizzas = Pizza.objects.all()
+        products = Product.objects.filter(name__istartswith='Пицца')
 
         params = {
-            'pizzas': pizzas
+            'products': products
         }
         return render(request, self.template_name, params)
-
 
 class SoupView(TemplateView):
     template_name = 'catalog/soup.html'
 
     def get(self, request):
-        soups = Soup.objects.all()
+        soup = Product.objects.exclude(name='Пицца')
 
         params = {
-            'soups': soups
+            'soup': soup
         }
         return render(request, self.template_name, params)

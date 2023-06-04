@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Pizza, Soup, Snack, Ingredients, Drinks
+from .models import Product, Ingredients
+from cart.models import Cart
 
 
 @admin.register(Ingredients)
@@ -7,11 +8,10 @@ class IngredientAdmin(admin.ModelAdmin):
     list_display = ('name', )
 
 
-@admin.register(Pizza)
-class PizzaAdmin(admin.ModelAdmin):
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'image', 'get_ingredients', 'weight', 'price', 'size')
 
-
-@admin.register(Soup)
-class SoupAdmin(admin.ModelAdmin):
-    list_display = ('name', 'image', 'get_ingredients', 'weight', 'price')
+@admin.register(Cart)
+class CartAdmin(admin.ModelAdmin):
+    list_display = ('user', 'display_products', 'get_total_price', 'get_total_quantity')

@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from .views import MenuView, SoupView
+from .views import PizzaView, SoupView
 
 urlpatterns = [
-    path('', MenuView.as_view(), name="menu-index"),
-    path('Soup', SoupView.as_view(), name="soup-menu")
+    path('', PizzaView.as_view(), name="menu-index"),
+    path('soup/', SoupView.as_view(), name="menu-soup"),
 ]
