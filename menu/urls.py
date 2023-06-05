@@ -4,5 +4,5 @@ from .views import PizzaView, SoupView
 
 urlpatterns = [
     path('', PizzaView.as_view(), name="menu-index"),
-    path('soup/', SoupView.as_view(), name="menu-soup"),
+    path('soup/', SoupView.as_view(), name='soup-menu')
 ]

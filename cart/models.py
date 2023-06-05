@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from menu.models import Product
 
 class Cart(models.Model):
-    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name="cart")
     products = models.ManyToManyField(Product, blank=True)
 
     def get_total_price(self):

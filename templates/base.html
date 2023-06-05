@@ -18,7 +18,7 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5" bis_skin_checked="1">
           <div class="col-lg-6 col-md-8 mx-auto" bis_skin_checked="1">
-            <img src="image/pashahut.png">
+            <img src="/image/pashahut.png">
           </div>
         </div>
     </section>
@@ -27,15 +27,15 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="{% url 'menu-index' %}" class="nav-link px-3 text-secondary">Pizza</a></li>
           <li><a href="#" class="nav-link px-3 text-white">Snacks</a></li>
-          <li><a href="{% url 'menu-soup' %}" class="nav-link px-3 text-white">Soup</a></li>
+          <li><a href="{% url 'soup-menu' %}" class="nav-link px-3 text-white">Soup</a></li>
           <li><a href="#" class="nav-link px-3 text-white">Drinks</a></li>
           <li><a href="#" class="nav-link px-3 text-white">About</a></li>
         </ul>
            {% if user.is_authenticated %}
                 <span class="px-4 text-white">Wanna some pizza, {{user.username}}?</span>
-                    <a href="#" class="btn btn-dark"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-bag-heart-fill" viewBox="0 0 15 15">
+                    <a href="{% url 'cart-detail' %}" class="btn btn-dark"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-bag-heart-fill" viewBox="0 0 15 15">
                         <path d="M11.5 4v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5ZM8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm0 6.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
-                    </svg></a>
+                    </svg><p>В корзину</p></a>
                     <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
                 {% else %}
                 <div class="text-end" bis_skin_checked="1">

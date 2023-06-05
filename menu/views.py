@@ -18,9 +18,9 @@ class SoupView(TemplateView):
     template_name = 'catalog/soup.html'
 
     def get(self, request):
-        soup = Product.objects.exclude(name='Пицца')
+        product = Product.objects.filter(name__istartswith='Суп')
 
         params = {
-            'soup': soup
+            'product': product
         }
-        return render(request, self.template_name, params)
+        return render(request, self.template_name, params)\
