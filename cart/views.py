@@ -35,7 +35,7 @@ class CartDeleteView(RedirectView):
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 class CartDetail(TemplateView):
-    template_name = 'catalog/cart.html'
+    template_name = 'cart/detail.html'
 
     def get(self, request):
         cartdetail = Cart.objects.all()
