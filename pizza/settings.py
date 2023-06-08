@@ -8,6 +8,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0-6@x$_ws8_@gi_8efuqljvl7(3cj_o@9wy7zkadsnpfat0hvo'
 
 
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '260435563433-i6rbt30645rkqbd97n65d4195j1tpsto.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+
 DEBUG = True
 
 
@@ -21,10 +25,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'order',
     'menu',
     'accounts',
     'cart',
-    'order',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.vk',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 MIDDLEWARE = [
@@ -96,6 +106,36 @@ STATIC_URL = 'static/'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+SOCIALACCOUNT_LOGIN_ON_GET = True
+
+
+AUTHENTICATION_BACKENDS = [
+    'allauth.account.auth_backends.AuthenticationBackend'
+]
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email'
+        ]
+    },
+    'vk': {
+        'SCOPE': [
+            'profile',
+            'email'
+        ]
+    },
+    'facebook': {
+        'SCOPE': [
+            'profile',
+            'email'
+        ]
+    }
+}
 
 
 LOGIN_REDIRECT_URL = '/'
